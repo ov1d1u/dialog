@@ -94,8 +94,9 @@ class Speech { // TS
   }
 
   hasActors(actorIds) {
-    return this.actors.every((actor) => {
-      return actorIds.indexOf(actor.id) !== -1;
+    return actorIds.every((actorId) => {
+      const actors = this.actors.map((actor) => { return actor.id })
+      return actors.indexOf(actorId) !== -1;
     });
   }
 }
@@ -107,30 +108,6 @@ class Relation {
     this.to = timelineManager.speechFromId(relationTag.getAttribute('TO'));
     this.type = relationTag.getAttribute('REL');
     this.trigger = relationTag.getAttribute('TRIGGER');
-  }
-
-  hasActor(actorId) {
-    for (var actor of [...this.to.actors, ...this.from.actors]) {
-      if (actor.id == actorId)
-        return true
-    }
-    
-    return false
-  }
-
-  hasAnyOfActors(actorIds) {
-    for (var actor of [...this.to.actors, ...this.from.actors]) {
-      if (actorIds.includes(actor.id)) {
-        return true
-      }
-    }
-    return false
-  }
-
-  hasActors(actorIds) {
-    return this.actors.every((actor) => {
-      return actorIds.indexOf(actor.id) !== -1;
-    });
   }
 }
 
@@ -383,7 +360,7 @@ class TimelineManager {
 
     // Break points in different timelines and create datasets
     var datasets = []
-    var timelines = this.timelines.filter((tl) => { return tl.points.filter((pt) => { return pt.speech.hasActors(actorIds) === true }).length > 0 })
+    var timelines = this.timelines.filter((tl) => { return tl.points.filter((pt) => { return pt.speech.hasActors(actorIds) }).length > 0 })
     for (var i = 0; i < timelines.length; i++) {
       var timeline = timelines[i]
       const color = getColor(i)
