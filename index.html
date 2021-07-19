@@ -4,23 +4,62 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <script type="text/javascript" src="jquery-3.6.0.min.js"></script>
-  <script src="chart.min.js"></script>
-  <title>HLN</title>
+  <link href="//fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.sumoselect/3.1.6/sumoselect.min.css">
+  <title>TimeBox</title>
 </head>
 <body>
-  <div>
-    <canvas id="timeline"></canvas>
-  </div>
+  <main>
+    <div class="container">
+        <div class="intro">
+            <h1>TimeBox</h1>
 
-  <script src="script.js"></script>
+            <div class="select-intro">
+                <span>Select Actor(s): </span>
+				<select name="actors" multiple="multiple" data-max="5" id="selected">
+				</select>
+            </div>
+        </div>
+        <div class="canvas">
+          <canvas id="timeline"></canvas>
+        </div>
+    </div>
+  </main>
+  <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+  <script src="js/chart.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.sumoselect/3.1.6/jquery.sumoselect.min.js"></script>
+  <script src="js/script.js"></script>
   <script type="text/javascript">
-    var timelineManager = new TimelineManager('test.xml')
-    timelineManager.load(function onComplete() {
-      console.log(timelineManager.getActors())
-      timelineManager.drawTimeline(["A1"])
-    });
+	jQuery(document).ready(function($) {
+
+		var timelineManager = new TimelineManager('input/test.xml')
+		timelineManager.load(function onComplete() {
+			var allActors = timelineManager.getActors();
+			var options  = '';
+
+			$.each( allActors, function( key, value ) {
+				options += '<option value="' + key + '">' + value.replaceAll('_', ' ') + '</option>';
+			});
+			$( "#selected" ).append( options );
+
+			var select = $('#selected').SumoSelect({
+				placeholder: 'See options',
+				search: true,
+    			searchText: 'Search...',
+				okCancelInMulti: true
+			});
+
+			$('#selected').on('sumo:closing', function(sumo) {
+				//var selectedActors = [];
+				var selectedActors = $(this).val();
+				console.log(selectedActors);
+				//timelineManager.drawTimeline(["A1", "A2", "A3"]);
+				timelineManager.drawTimeline(selectedActors);
+				//timelineManager.drawTimeline(["A1"]);
+			});
+		}); 
+	});
   </script>
 </body>
 </html>

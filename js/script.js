@@ -24,11 +24,20 @@ const transparentize = (color, opacity) => {
   return color + _opacity.toString(16).toUpperCase();
 }
 
+String.prototype.splitByWordCount = function(count) {
+  var arr = this.split(' ')
+  var r = [];
+  while (arr.length) {
+    r.push(arr.splice(0, count).join(' '))
+  }
+  return r;
+}
+
 Array.prototype.insert = function ( index, item ) {
   this.splice( index, 0, item );
 };
 
-class Actor {
+class Actor { // ... 
   constructor(actorTag, timelineManager) {
     this.id = actorTag.getAttribute('ID');
     this.name = actorTag.getAttribute('NAME');
@@ -43,7 +52,7 @@ class Location {
   }
 }
 
-class Speech {
+class Speech { // TS 
   constructor(speechTag, timelineManager) {
     this.id = speechTag.getAttribute('ID');
     this.actors = []
@@ -352,7 +361,7 @@ class TimelineManager {
     var retries = 0
     var maxX = 0
     this.orphans = this.processTimeline(actorIds)
-    while (this.orphans.length && ++retries <= 1) {
+    while (this.orphans.length && ++retries <= 10) {
       this.orphans = this.processTimeline(actorIds)
     }
 
@@ -430,13 +439,13 @@ class TimelineManager {
             callbacks: {
               title: (item) => {
                 const point = item[0].dataset.points[item[0].dataIndex];
-                return point.speech.name
+                return `${point.speech.id}: ${point.speech.name}`
               },
               label: (item) => {
                 const point = item.dataset.points[item.dataIndex];
-                const splited = point.speech.text.match(/\b[\w']+(?:[^\w\n]+[\w']+){0,25}\b/g);
-                return splited
-              },
+                const splited = point.speech.text.splitByWordCount(25);
+                return [`Actor(s):`, point.speech.actors.map((actor) => { return actor.name }), '', `Content:`, ...splited]
+              }
               // footer: (item) => {
               //   const point = item[0].dataset.points[item[0].dataIndex];
               //   return `Trigger: ${point}`

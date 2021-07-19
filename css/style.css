@@ -3,12 +3,60 @@
 }
 
 body {
-  width: 100vw;
-  height: 100vh;
+  /* width: 100vw;
+  height: 100vh; */
   margin: 0;
   padding: 0;
   background: #ffffff;
-  font-family: Arial;
+  font-family: 'Roboto', sans-serif;
+  font-size: 10px;
+  /* font-family: Arial; */
+}
+
+.container {
+  margin: 0 auto;
+  width: 90%;
+}
+
+.intro{
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.intro h1 {
+  text-align: center;
+  font-size: 3rem;
+}
+
+.canvas {
+  padding-bottom: 50px;
+}
+
+.select-intro {
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.SumoSelect {
+	text-align: left;
+}
+
+.select-intro  > span {
+	padding-right: 20px;
+}
+
+.select-intro  > span,
+.select-intro > .SumoSelect {
+	display: inline-block;
+    vertical-align: middle;
+}
+
+.select-intro > .SumoSelect {
+	width: 300px;
+}
+
+.SumoSelect.open .search-txt {
+	font-size: 1.1rem;
 }
 
 #lineCont {
