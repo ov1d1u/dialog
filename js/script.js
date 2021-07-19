@@ -16,7 +16,7 @@ const getColor = (index) => {
     return colors[index]
   }
 
-  return Math.floor(Math.random()*16777215).toString(16);
+  return "#" + Math.floor(Math.random()*16777215).toString(16);
 }
 
 const transparentize = (color, opacity) => {
@@ -148,10 +148,6 @@ class TimelinePoint {
   constructor(speech) {
     this.speech = speech
   }
-
-  toString() {
-    return `pos: ${this.x},${this.y} speeches: ${this.speech.id}`
-  }
 }
 
 class TimelineSpacer {
@@ -162,6 +158,7 @@ class TimelineManager {
   constructor(url) {
     this.url = url
     this.timelines = []
+    this.orphanTimelines = []
     this.xmlDoc = null
     this.actors = []
     this.locations = []
@@ -279,7 +276,7 @@ class TimelineManager {
   }
 
   timelineOfPoint(p) {
-    for (var timeline of this.timelines) {
+    for (var timeline of [...this.timelines, ...this.orphanTimelines]) {
       for (var point of timeline.points) {
         if (point === undefined) {
           continue
@@ -292,8 +289,9 @@ class TimelineManager {
   }
 
   indexOfPoint(p) {
-    for (var i = 0; i < this.timelines.length; i++) {
-      var timeline = this.timelines[i]
+    var timelines = [...this.timelines, ...this.orphanTimelines]
+    for (var i = 0; i < timelines.length; i++) {
+      var timeline = timelines[i]
       for (var j = 0; j < timeline.points.length; j++) {
         var point = timeline.points[j]
         if (point === undefined) {
@@ -323,34 +321,37 @@ class TimelineManager {
       var point = new TimelinePoint(relation.from)
       var toPoint = this.pointFromSpeech(relation.to)
       
-      if (toPoint !== null) {
-        var x = this.indexOfPoint(toPoint)
-        var newX = undefined
-        var timeline = this.timelineOfPoint(toPoint)
+      if (toPoint === null) {
+        this.timelines.push(new Timeline(), new Timeline())  // padding
+        toPoint = new TimelinePoint(relation.to)
+        var timeline = new Timeline(toPoint)
+        this.orphanTimelines.push(timeline)
+      }
 
-        if (relation.type == 'IMMEDIATELY_BEFORE') {
-          newX = x-1
-        } else if (relation.type == 'IMMEDIATELY_AFTER') {
-          newX = x+1
-        } else if (relation.type == 'BEFORE') {
-          newX = x-2
-        } else if (relation.type == 'AFTER') {
-          newX = x+2
-        } else if (relation.type == 'SIMULTANEOUS') {
-          var timeline = new Timeline()
-          timeline.addPoint(x, point)
+      var x = this.indexOfPoint(toPoint)
+      var newX = undefined
+      var timeline = this.timelineOfPoint(toPoint)
+
+      if (relation.type == 'IMMEDIATELY_BEFORE') {
+        newX = x-1
+      } else if (relation.type == 'IMMEDIATELY_AFTER') {
+        newX = x+1
+      } else if (relation.type == 'BEFORE') {
+        newX = x-2
+      } else if (relation.type == 'AFTER') {
+        newX = x+2
+      } else if (relation.type == 'SIMULTANEOUS') {
+        var timeline = new Timeline()
+        timeline.addPoint(x, point)
+        this.timelines.push(timeline)
+      }
+
+      if (newX !== undefined) {
+        if (timeline.pointAt(newX) !== undefined) {
+          timeline = new Timeline()
           this.timelines.push(timeline)
         }
-
-        if (newX !== undefined) {
-          if (timeline.pointAt(newX) !== undefined) {
-            timeline = new Timeline()
-            this.timelines.push(timeline)
-          }
-          timeline.addPoint(newX, point)
-        }
-      } else {
-        orphans.push(relation.from)
+        timeline.addPoint(newX, point)
       }
     }
 
@@ -372,9 +373,14 @@ class TimelineManager {
     // Break points in different timelines and create datasets
     var datasets = []
     var timelines = this.timelines.filter((tl) => { return tl.points.filter((pt) => { return pt.speech.hasAnyOfActors(actorIds) == true }).length > 0 })
+    if (this.orphanTimelines.length > 0) {
+      timelines.push(new Timeline(), new Timeline(), new Timeline(), new Timeline(), new Timeline(), new Timeline())
+      timelines.push(...this.orphanTimelines)
+    }
+
     for (var i = 0; i < timelines.length; i++) {
       var timeline = timelines[i]
-      const color = getColor(i)
+      const color = this.orphanTimelines.includes(timeline) ? "#000000" : getColor(i)
       var dataset = {
         label: null,
         borderColor: color,

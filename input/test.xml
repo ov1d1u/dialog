@@ -2946,33 +2946,34 @@
 	<TREL ID="TI12" FROM="TS13" TO="TS12" REL="SIMULTANEOUS" TRIGGER="Karl refuzase să facă ceva" />
 	<TREL ID="TI13" FROM="TS14" TO="TS1" REL="SIMULTANEOUS" TRIGGER="însă acum rămăsese singur" />
 	<TREL ID="TI14" FROM="TS15" TO="TS14" REL="IMMEDIATELY_AFTER" TRIGGER="după plecarea camionului" />
-	<TREL ID="TI15" FROM="TS17" TO="TS16" REL="SIMULTANEOUS" TRIGGER="uneori" />
-	<TREL ID="TI16" FROM="TS18" TO="TS17" REL="SIMULTANEOUS" TRIGGER="uneori, arareori" />
-	<TREL ID="TI17" FROM="TS19" TO="TS18" REL="SIMULTANEOUS" TRIGGER="iar uneori" />
-	<TREL ID="TI18" FROM="TS20" TO="TS19" REL="SIMULTANEOUS" TRIGGER="acele resturi de vorbire şi de imagini nu se potrivesc între ele" />
-	<TREL ID="TI19" FROM="TS21" TO="TS15" REL="IMMEDIATELY_AFTER" TRIGGER="Tocmai asta îşi spune acum" />
-	<TREL ID="TI20" FROM="TS22" TO="TS21" REL="BEFORE" TRIGGER="în ziua când Karl l-a adus de la orfelinat" />
-	<TREL ID="TI21" FROM="TS23" TO="TS22" REL="IMMEDIATELY_AFTER" TRIGGER="Adam nu îndrăznea în primele zile" />
-	<TREL ID="TI22" FROM="TS24" TO="TS23" REL="IMMEDIATELY_AFTER" TRIGGER="într_o zi" />
-	<TREL ID="TI23" FROM="TS25" TO="TS23" REL="SIMULTANEOUS" TRIGGER="în zilele acelea dintâi" />
-	<TREL ID="TI24" FROM="TS26" TO="TS25" REL="AFTER" TRIGGER="în cele din urmă" />
-	<TREL ID="TI25" FROM="TS27" TO="TS26" REL="AFTER" TRIGGER="cu vremea" />
-	<TREL ID="TI26" FROM="TS28" TO="TS27" REL="AFTER" TRIGGER="Adam avea să descopere şi muzica" />
-	<TREL ID="TI27" FROM="TS29" TO="TS28" REL="SIMULTANEOUS" TRIGGER="uneori" />
-	<TREL ID="TI28" FROM="TS30" TO="TS29" REL="SIMULTANEOUS" TRIGGER="îşi spunea în acele prime luni" />
-	<TREL ID="TI29" FROM="TS31" TO="TS30" REL="SIMULTANEOUS" TRIGGER="Rareori" />
-	<TREL ID="TI30" FROM="TS32" TO="TS31" REL="AFTER" TRIGGER="odată" />
-	<TREL ID="TI31" FROM="TS33" TO="TS32" REL="IMMEDIATELY_AFTER" TRIGGER="în seara dinaintea plecării" />
-	<TREL ID="TI32" FROM="TS34" TO="TS33" REL="AFTER" TRIGGER="aceste întâmplări din noua lui viaţă le reface în minte de câte ori doreşte" />
-	<TREL ID="TI33" FROM="TS35" TO="TS21" REL="SIMULTANEOUS" TRIGGER="Chiar şi în clipa aceasta" />
-	<TREL ID="TI34" FROM="TS36" TO="TS31" REL="SIMULTANEOUS" TRIGGER="alteori" />
-	<TREL ID="TI35" FROM="TS38" TO="TS37" REL="SIMULTANEOUS" TRIGGER="de fapt, Margaret nu era deprimată" />
-	<TREL ID="TI36" FROM="TS39" TO="TS38" REL="IMMEDIATELY_AFTER" TRIGGER="Aşa spui de fiecare dată" />
-	<TREL ID="TI37" FROM="TS40" TO="TS39" REL="IMMEDIATELY_AFTER" TRIGGER="Margaret s_a întors cu spatele şi a privit pe fereastră întinderea de clădiri cenuşii" />
-	<TREL ID="TI38" FROM="TS41" TO="TS42" REL="IMMEDIATELY_AFTER" TRIGGER="hai să mergem la masă mai devreme" />
-	<TREL ID="TI39" FROM="TS42" TO="TS41" REL="IMMEDIATELY_AFTER" TRIGGER="au traversat şoseaua pe pasarelă" />
-	<TREL ID="TI40" FROM="TS43" TO="TS42" REL="SIMULTANEOUS" TRIGGER="îi plăcea Din" />
-	<TREL ID="TI41" FROM="TS44" TO="TS42" REL="IMMEDIATELY_AFTER" TRIGGER="treceau pe lângă un canal cu apă stătută" />
+	<TREL ID="TI15" FROM="TS16" TO="TS15" REL="SIMULTANEOUS" TRIGGER="uneori" />
+	<TREL ID="TI16" FROM="TS17" TO="TS16" REL="SIMULTANEOUS" TRIGGER="uneori" />
+	<TREL ID="TI17" FROM="TS18" TO="TS17" REL="SIMULTANEOUS" TRIGGER="uneori, arareori" />
+	<TREL ID="TI18" FROM="TS19" TO="TS18" REL="SIMULTANEOUS" TRIGGER="iar uneori" />
+	<TREL ID="TI19" FROM="TS20" TO="TS19" REL="SIMULTANEOUS" TRIGGER="acele resturi de vorbire şi de imagini nu se potrivesc între ele" />
+	<TREL ID="TI20" FROM="TS21" TO="TS15" REL="IMMEDIATELY_AFTER" TRIGGER="Tocmai asta îşi spune acum" />
+	<TREL ID="TI21" FROM="TS22" TO="TS21" REL="BEFORE" TRIGGER="în ziua când Karl l-a adus de la orfelinat" />
+	<TREL ID="TI22" FROM="TS23" TO="TS22" REL="IMMEDIATELY_AFTER" TRIGGER="Adam nu îndrăznea în primele zile" />
+	<TREL ID="TI23" FROM="TS24" TO="TS23" REL="IMMEDIATELY_AFTER" TRIGGER="într_o zi" />
+	<TREL ID="TI24" FROM="TS25" TO="TS23" REL="SIMULTANEOUS" TRIGGER="în zilele acelea dintâi" />
+	<TREL ID="TI25" FROM="TS26" TO="TS25" REL="AFTER" TRIGGER="în cele din urmă" />
+	<TREL ID="TI26" FROM="TS27" TO="TS26" REL="AFTER" TRIGGER="cu vremea" />
+	<TREL ID="TI27" FROM="TS28" TO="TS27" REL="AFTER" TRIGGER="Adam avea să descopere şi muzica" />
+	<TREL ID="TI28" FROM="TS29" TO="TS28" REL="SIMULTANEOUS" TRIGGER="uneori" />
+	<TREL ID="TI29" FROM="TS30" TO="TS29" REL="SIMULTANEOUS" TRIGGER="îşi spunea în acele prime luni" />
+	<TREL ID="TI30" FROM="TS31" TO="TS30" REL="SIMULTANEOUS" TRIGGER="Rareori" />
+	<TREL ID="TI31" FROM="TS32" TO="TS31" REL="AFTER" TRIGGER="odată" />
+	<TREL ID="TI32" FROM="TS33" TO="TS32" REL="IMMEDIATELY_AFTER" TRIGGER="în seara dinaintea plecării" />
+	<TREL ID="TI33" FROM="TS34" TO="TS33" REL="AFTER" TRIGGER="aceste întâmplări din noua lui viaţă le reface în minte de câte ori doreşte" />
+	<TREL ID="TI34" FROM="TS35" TO="TS21" REL="SIMULTANEOUS" TRIGGER="Chiar şi în clipa aceasta" />
+	<TREL ID="TI35" FROM="TS36" TO="TS31" REL="SIMULTANEOUS" TRIGGER="alteori" />
+	<TREL ID="TI36" FROM="TS38" TO="TS37" REL="SIMULTANEOUS" TRIGGER="de fapt, Margaret nu era deprimată" />
+	<TREL ID="TI37" FROM="TS39" TO="TS38" REL="IMMEDIATELY_AFTER" TRIGGER="Aşa spui de fiecare dată" />
+	<TREL ID="TI38" FROM="TS40" TO="TS39" REL="IMMEDIATELY_AFTER" TRIGGER="Margaret s_a întors cu spatele şi a privit pe fereastră întinderea de clădiri cenuşii" />
+	<TREL ID="TI39" FROM="TS41" TO="TS40" REL="IMMEDIATELY_AFTER" TRIGGER="hai să mergem la masă mai devreme" />
+	<TREL ID="TI40" FROM="TS42" TO="TS41" REL="IMMEDIATELY_AFTER" TRIGGER="au traversat şoseaua pe pasarelă" />
+	<TREL ID="TI41" FROM="TS43" TO="TS42" REL="SIMULTANEOUS" TRIGGER="îi plăcea Din" />
+	<TREL ID="TI42" FROM="TS44" TO="TS42" REL="IMMEDIATELY_AFTER" TRIGGER="treceau pe lângă un canal cu apă stătută" />
 	<TREL ID="TI42" FROM="TS45" TO="TS44" REL="SIMULTANEOUS" TRIGGER="nu era atrasă de el" />
 	<TREL ID="TI43" FROM="TS46" TO="TS44" REL="IMMEDIATELY_AFTER" TRIGGER="aşa că au făcut câţiva paşi până să se hotărască să se aşeze la o masă" />
 	<TREL ID="TI44" FROM="TS47" TO="TS46" REL="IMMEDIATELY_AFTER" TRIGGER="Din a continuat să vorbească, dar ei îi fusese atrasă atenţia de către un băiat"/>
@@ -2985,6 +2986,9 @@
 	<TREL ID="TI51" FROM="TS54" TO="TS53" REL="IMMEDIATELY_AFTER" TRIGGER="Mulţumesc, dar acum trebuie să plec" />
 	<TREL ID="TI52" FROM="TS55" TO="TS54" REL="IMMEDIATELY_AFTER" TRIGGER="era tot Bill Schneider" />
 	<TREL ID="TI53" FROM="TS56" TO="TS55" REL="IMMEDIATELY_AFTER" TRIGGER="pe drum se tot oprea" />
+	
+	<TREL ID="TI54" FROM="TS58" TO="TS57" REL="SIMULTANEOUS" TRIGGER="Povestirile despre istoria legendară a insulei Perdo" />
+	
 	<TREL ID="TI54" FROM="TS59" TO="TS58" REL="AFTER" TRIGGER="Mult mai târziu" />
 	<TREL ID="TI55" FROM="TS60" TO="TS59" REL="AFTER" TRIGGER="Cu vremea" />
 	<TREL ID="TI56" FROM="TS61" TO="TS60" REL="SIMULTANEOUS" TRIGGER="Totuşi chiar pe atunci începu Karl să-i vorbească despre şcoală" />
@@ -3005,5 +3009,7 @@
 	<TREL ID="TI71" FROM="TS76" TO="TS75" REL="AFTER" TRIGGER="Într_o dimineaţă" />
 	<TREL ID="TI72" FROM="TS77" TO="TS76" REL="IMMEDIATELY_AFTER" TRIGGER="În seara aceea" />
 	<TREL ID="TI73" FROM="TS79" TO="TS78" REL="IMMEDIATELY_AFTER" TRIGGER="Când s_au oprit" />
-	<TREL ID="TI74" FROM="TS80" TO="TS79" REL="IMMEDIATELY_AFTER" TRIGGER="Hai s_o ştergem de_aici" />
+	<TREL ID="TI74" FROM="TS80" TO="TS79" REL="IMMEDIATELY_AFTER" TRIGGER="Hai s_o ştergem de_aici"  />
+	
+	<TREL ID="TI75" FROM="TS37" TO="TS1" REL="SIMULTANEOUS" TRIGGER="Margaret vs Adam"  />
 </TAGS>

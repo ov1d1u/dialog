@@ -33,7 +33,7 @@
   <script type="text/javascript">
 	jQuery(document).ready(function($) {
 
-		var timelineManager = new TimelineManager('input/test.xml')
+		timelineManager = new TimelineManager('input/test.xml')
 		timelineManager.load(function onComplete() {
 			var allActors = timelineManager.getActors();
 			var options  = '';
