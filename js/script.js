@@ -92,6 +92,12 @@ class Speech { // TS
     }
     return false
   }
+
+  hasActors(actorIds) {
+    return this.actors.every((actor) => {
+      return actorIds.indexOf(actor.id) !== -1;
+    });
+  }
 }
 
 class Relation {
@@ -119,6 +125,12 @@ class Relation {
       }
     }
     return false
+  }
+
+  hasActors(actorIds) {
+    return this.actors.every((actor) => {
+      return actorIds.indexOf(actor.id) !== -1;
+    });
   }
 }
 
@@ -306,7 +318,7 @@ class TimelineManager {
     }
   }
 
-  processTimeline(actorIds) {
+  processTimeline() {
     var orphans = []
     
     for (var relation of this.relations) {
@@ -360,9 +372,9 @@ class TimelineManager {
   drawTimeline(actorIds) {
     var retries = 0
     var maxX = 0
-    this.orphans = this.processTimeline(actorIds)
+    this.orphans = this.processTimeline()
     while (this.orphans.length && ++retries <= 10) {
-      this.orphans = this.processTimeline(actorIds)
+      this.orphans = this.processTimeline()
     }
 
     if (this.orphans.length > 0) {
@@ -371,7 +383,7 @@ class TimelineManager {
 
     // Break points in different timelines and create datasets
     var datasets = []
-    var timelines = this.timelines.filter((tl) => { return tl.points.filter((pt) => { return pt.speech.hasAnyOfActors(actorIds) == true }).length > 0 })
+    var timelines = this.timelines.filter((tl) => { return tl.points.filter((pt) => { return pt.speech.hasActors(actorIds) === true }).length > 0 })
     for (var i = 0; i < timelines.length; i++) {
       var timeline = timelines[i]
       const color = getColor(i)
@@ -386,7 +398,7 @@ class TimelineManager {
       }
       for (var j = 0; j < timeline.points.length; j++) {
         var point = timeline.points[j]
-        if (point !== undefined) {
+        if (point !== undefined && point.speech.hasActors(actorIds)) {
           dataset.points[j] = point
           dataset.data[j] = i
           maxX = Math.max(maxX, j)
