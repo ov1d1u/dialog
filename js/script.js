@@ -92,6 +92,13 @@ class Speech { // TS
     }
     return false
   }
+
+  hasActors(actorIds) {
+    return actorIds.every((actorId) => {
+      const actors = this.actors.map((actor) => { return actor.id })
+      return actors.indexOf(actorId) !== -1;
+    });
+  }
 }
 
 class Relation {
@@ -101,24 +108,6 @@ class Relation {
     this.to = timelineManager.speechFromId(relationTag.getAttribute('TO'));
     this.type = relationTag.getAttribute('REL');
     this.trigger = relationTag.getAttribute('TRIGGER');
-  }
-
-  hasActor(actorId) {
-    for (var actor of [...this.to.actors, ...this.from.actors]) {
-      if (actor.id == actorId)
-        return true
-    }
-    
-    return false
-  }
-
-  hasAnyOfActors(actorIds) {
-    for (var actor of [...this.to.actors, ...this.from.actors]) {
-      if (actorIds.includes(actor.id)) {
-        return true
-      }
-    }
-    return false
   }
 }
 
@@ -304,7 +293,7 @@ class TimelineManager {
     }
   }
 
-  processTimeline(actorIds) {
+  processTimeline() {
     var orphans = []
     
     for (var relation of this.relations) {
@@ -361,9 +350,9 @@ class TimelineManager {
   drawTimeline(actorIds) {
     var retries = 0
     var maxX = 0
-    this.orphans = this.processTimeline(actorIds)
+    this.orphans = this.processTimeline()
     while (this.orphans.length && ++retries <= 10) {
-      this.orphans = this.processTimeline(actorIds)
+      this.orphans = this.processTimeline()
     }
 
     if (this.orphans.length > 0) {
@@ -392,7 +381,7 @@ class TimelineManager {
       }
       for (var j = 0; j < timeline.points.length; j++) {
         var point = timeline.points[j]
-        if (point !== undefined) {
+        if (point !== undefined && point.speech.hasActors(actorIds)) {
           dataset.points[j] = point
           dataset.data[j] = i
           maxX = Math.max(maxX, j)
