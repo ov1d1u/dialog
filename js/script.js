@@ -122,49 +122,22 @@ class Relation {
   }
 }
 
-class Timeline {
-  constructor(point) {
-    this.points = []
-    if (point) {
-      this.addPoint(0, point)
-    }
-  }
-
-  addPoint(index, point) {
-    var i = Math.max(0, index)
-    if (this.points[i] === undefined) {
-      this.points[i] = point
-    } else {
-      this.points.insert(i, point)
-    }
-  }
-
-  pointAt(index) {
-    return this.points[index]
-  }
-}
-
 class TimelinePoint {
   constructor(speech) {
     this.speech = speech
   }
 }
 
-class TimelineSpacer {
-  constructor() {}
-}
-
 class TimelineManager {
   constructor(url) {
     this.url = url
-    this.timelines = []
-    this.orphanTimelines = []
     this.xmlDoc = null
     this.actors = []
     this.locations = []
     this.speeches = []
     this.relations = []
 
+    this.points = []
     this.orphans = []
   }
 
@@ -261,45 +234,26 @@ class TimelineManager {
   }
 
   pointFromSpeech(speech) {
-    for (var timeline of this.timelines) {
-      for (var point of timeline.points) {
-        if (point === undefined) {
-          continue
-        }
-        if (point.speech.id === speech.id) {
-          return point
-        }
+    for (var point of this.points) {
+      if (point === null) {
+        continue
+      }
+      if (point.speech.id === speech.id) {
+        return point
       }
     }
 
     return null
   }
 
-  timelineOfPoint(p) {
-    for (var timeline of [...this.timelines, ...this.orphanTimelines]) {
-      for (var point of timeline.points) {
-        if (point === undefined) {
-          continue
-        }
-        if (p.speech.id === point.speech.id) {
-          return timeline
-        }
-      }
-    }
-  }
-
   indexOfPoint(p) {
-    var timelines = [...this.timelines, ...this.orphanTimelines]
-    for (var i = 0; i < timelines.length; i++) {
-      var timeline = timelines[i]
-      for (var j = 0; j < timeline.points.length; j++) {
-        var point = timeline.points[j]
-        if (point === undefined) {
-          continue
-        }
-        if (p.speech.id === point.speech.id) {
-          return j
-        }
+    for (var j = 0; j < this.points.length; j++) {
+      var point = this.points[j]
+      if (point === null) {
+        continue
+      }
+      if (p.speech.id === point.speech.id) {
+        return j
       }
     }
   }
@@ -307,52 +261,43 @@ class TimelineManager {
   processTimeline(actorIds) {
     var orphans = []
     
+    var count = 0;
     for (var relation of this.relations) {
+      if (count > 12) {
+        console.log(this.points)
+        continue 
+      }
       if (this.pointFromSpeech(relation.from)) {
         continue  // We already have this point on the timeline
       }
-      if (this.timelines.length == 0) {
+      if (this.points.length == 0) {
         // Create the first point
         var point = new TimelinePoint(relation.to)
-        var timeline = new Timeline(point)
-        this.timelines.push(timeline)
+        this.points.push(point)
       }
 
       var point = new TimelinePoint(relation.from)
       var toPoint = this.pointFromSpeech(relation.to)
-      
-      if (toPoint === null) {
-        this.timelines.push(new Timeline(), new Timeline())  // padding
-        toPoint = new TimelinePoint(relation.to)
-        var timeline = new Timeline(toPoint)
-        this.orphanTimelines.push(timeline)
-      }
 
-      var x = this.indexOfPoint(toPoint)
-      var newX = undefined
-      var timeline = this.timelineOfPoint(toPoint)
+      if (toPoint) {
+        var idx = this.indexOfPoint(toPoint)
 
-      if (relation.type == 'IMMEDIATELY_BEFORE') {
-        newX = x-1
-      } else if (relation.type == 'IMMEDIATELY_AFTER') {
-        newX = x+1
-      } else if (relation.type == 'BEFORE') {
-        newX = x-2
-      } else if (relation.type == 'AFTER') {
-        newX = x+2
-      } else if (relation.type == 'SIMULTANEOUS') {
-        var timeline = new Timeline()
-        timeline.addPoint(x, point)
-        this.timelines.push(timeline)
-      }
-
-      if (newX !== undefined) {
-        if (timeline.pointAt(newX) !== undefined) {
-          timeline = new Timeline()
-          this.timelines.push(timeline)
+        if (relation.type == 'IMMEDIATELY_BEFORE') {
+          this.points.insert(idx, point)
+        } else if (relation.type == 'IMMEDIATELY_AFTER' || relation.type == 'SIMULTANEOUS') {
+          this.points.insert(idx + 1, point)
+        } else if (relation.type == 'BEFORE') {
+          this.points.insert(idx, point)
+          this.points.insert(idx+1, null)  // padding
+        } else if (relation.type == 'AFTER') {
+          this.points.insert(idx+1, null)  // padding
+          this.points.insert(idx+2, point)
         }
-        timeline.addPoint(newX, point)
+      } else {
+        this.orphans.push(relation.from) 
       }
+
+      count++;
     }
 
     return orphans
@@ -370,45 +315,33 @@ class TimelineManager {
       console.error(`ERROR: ${this.orphans.length} speeches couldn't be placed on the timeline (no parents found)`)
     }
 
-    // Break points in different timelines and create datasets
-    var datasets = []
-    var timelines = this.timelines.filter((tl) => { return tl.points.filter((pt) => { return pt.speech.hasAnyOfActors(actorIds) == true }).length > 0 })
-    if (this.orphanTimelines.length > 0) {
-      timelines.push(new Timeline(), new Timeline(), new Timeline(), new Timeline(), new Timeline(), new Timeline())
-      timelines.push(...this.orphanTimelines)
+    const color = getColor(0)
+    var dataset = {
+      label: null,
+      borderColor: color,
+      backgroundColor: transparentize(color, 0.5),
+      borderWidth: 6,
+      data: [],
+      points: [],
+      spanGaps: true
     }
 
-    for (var i = 0; i < timelines.length; i++) {
-      var timeline = timelines[i]
-      const color = this.orphanTimelines.includes(timeline) ? "#000000" : getColor(i)
-      var dataset = {
-        label: null,
-        borderColor: color,
-        backgroundColor: transparentize(color, 0.5),
-        borderWidth: 6,
-        data: [],
-        points: [],
-        spanGaps: true
-      }
-      for (var j = 0; j < timeline.points.length; j++) {
-        var point = timeline.points[j]
-        if (point !== undefined) {
-          dataset.points[j] = point
-          dataset.data[j] = i
-          maxX = Math.max(maxX, j)
-        }
-      }
-      
-      if (dataset.data.length > 0) {
-        datasets.push(dataset)
+    for (var i = 0; i < this.points.length; i++) {
+      var point = this.points[i]
+      if (point !== null) {
+        dataset.points[i] = point
+        dataset.data[i] = 0
+        maxX = Math.max(maxX, i)
       }
     }
 
     var labels = Array.from({length:maxX + 2},(v,k)=>k+1);
     var data = {
       labels: labels,
-      datasets: datasets
+      datasets: [dataset]
     }
+
+    console.log(dataset)
 
     if (window.timelineChart) {
       window.timelineChart.destroy();
