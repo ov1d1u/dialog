@@ -41,6 +41,7 @@ class Actor { // ...
   constructor(actorTag, timelineManager) {
     this.id = actorTag.getAttribute('ID');
     this.name = actorTag.getAttribute('NAME');
+    this.isMain = actorTag.getAttribute('TYPE') === "MAIN";
   }
 }
 
@@ -184,6 +185,16 @@ class TimelineManager {
     var actorsMap = {}
     for (var actor of this.actors) {
       actorsMap[actor.id] = actor.name
+    }
+
+    return actorsMap
+  }
+
+  getMainActors() {
+    var actorsMap = {}
+    for (var actor of this.actors) {
+      if (actor.isMain)
+        actorsMap[actor.id] = actor.name
     }
 
     return actorsMap
