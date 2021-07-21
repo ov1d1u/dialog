@@ -128,6 +128,8 @@ class TimelinePoint {
   }
 }
 
+class TimelineGap extends TimelinePoint {}
+
 class TimelineManager {
   constructor(url) {
     this.url = url
@@ -235,7 +237,7 @@ class TimelineManager {
 
   pointFromSpeech(speech) {
     for (var point of this.points) {
-      if (point === null) {
+      if (point instanceof TimelineGap) {
         continue
       }
       if (point.speech.id === speech.id) {
@@ -249,7 +251,7 @@ class TimelineManager {
   indexOfPoint(p) {
     for (var j = 0; j < this.points.length; j++) {
       var point = this.points[j]
-      if (point === null) {
+      if (point instanceof TimelineGap) {
         continue
       }
       if (p.speech.id === point.speech.id) {
@@ -273,7 +275,6 @@ class TimelineManager {
 
       const point = new TimelinePoint(relation.from)
       const toPoint = this.pointFromSpeech(relation.to)
-      const hasActor = relation.from.hasAnyOfActors(actorIds)
 
       if (toPoint) {
         const idx = this.indexOfPoint(toPoint)
@@ -284,10 +285,10 @@ class TimelineManager {
           this.points.insert(idx + 1, point)
         } else if (relation.type == 'BEFORE') {
           this.points.insert(idx, point)
-          if (hasActor) this.points.insert(idx+1, null)  // padding
+          this.points.insert(idx+1, new TimelineGap(relation.from))
         } else if (relation.type == 'AFTER') {
-          if (hasActor) this.points.insert(idx+1, null)  // padding
-          this.points.insert(idx+(hasActor ? 2 : 1), point)
+          this.points.insert(idx+1, new TimelineGap(relation.from))
+          this.points.insert(idx+2, point)
         }
       } else {
         this.orphans.push(relation.from) 
@@ -318,12 +319,15 @@ class TimelineManager {
       spanGaps: true
     }
 
-    for (var i = 0; i < this.points.length; i++) {
-      var point = this.points[i]
-      if (point !== null) {
-        dataset.points[i] = point
-        dataset.data[i] = 0
-        maxX = Math.max(maxX, i)
+    var currentPos = 0
+    for (var point of this.points) {
+      if (point.speech.hasAnyOfActors(actorIds)) {
+        if (!(point instanceof TimelineGap)) {
+          dataset.points[currentPos] = point
+          dataset.data[currentPos] = 0
+          maxX = Math.max(maxX, currentPos)
+        }
+        currentPos++
       }
     }
 
