@@ -261,12 +261,7 @@ class TimelineManager {
   processTimeline(actorIds) {
     var orphans = []
     
-    var count = 0;
     for (var relation of this.relations) {
-      if (count > 12) {
-        console.log(this.points)
-        continue 
-      }
       if (this.pointFromSpeech(relation.from)) {
         continue  // We already have this point on the timeline
       }
@@ -296,8 +291,6 @@ class TimelineManager {
       } else {
         this.orphans.push(relation.from) 
       }
-
-      count++;
     }
 
     return orphans
