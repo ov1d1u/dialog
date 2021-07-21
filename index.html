@@ -16,11 +16,9 @@
             <h1>TimeBox</h1>
 
 			<div class="wrap-input">
-				<form action="" method="POST">
-					<input type="file" name="xml"  accept="text/xml">
-					<input type="submit" name="" value="submit">
-				</form> 
-				
+				<input type="file" id="xmlFile" name="xmlFile" />
+				<button id="loadFileButton">Încarcă</button>
+
 			</div>
             <div class="select-intro">
                 <span>Select Actor(s): </span>
@@ -39,13 +37,18 @@
   <script src="js/script.js"></script>
   <script type="text/javascript">
 	jQuery(document).ready(function($) {
+		window.currentFile = null;
+		window.reader = new FileReader();
 
-		timelineManager = new TimelineManager('input/hln_final_2.xml')
-		timelineManager.load(function onComplete() {
-			var allActors = timelineManager.getActors();
+		window.reader.onload = function(e) {
+			timelineManager = new TimelineManager();
+			timelineManager.loadString(window.reader.result);
+			
+			var allActors = timelineManager.getMainActors();
 			var options  = '';
 
 			$.each( allActors, function( key, value ) {
+				console.log(key, value);
 				options += '<option value="' + key + '">' + value.replaceAll('_', ' ') + '</option>';
 			});
 			$( "#selected" ).append( options );
@@ -53,7 +56,7 @@
 			var select = $('#selected').SumoSelect({
 				placeholder: 'See options',
 				search: true,
-    			searchText: 'Search...',
+				searchText: 'Search...',
 				okCancelInMulti: true
 			});
 
@@ -65,7 +68,17 @@
 				timelineManager.drawTimeline(selectedActors);
 				//timelineManager.drawTimeline(["A1"]);
 			});
-		}); 
+		}
+
+		$('#xmlFile').on('change', function(e) {
+			window.currentFile = e.target.files[0];
+		});
+
+		$('#loadFileButton').click(function() {
+			if (window.currentFile) {
+				window.reader.readAsText(window.currentFile);
+			}
+		})
 	});
   </script>
 </body>

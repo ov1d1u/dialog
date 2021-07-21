@@ -132,8 +132,7 @@ class TimelinePoint {
 class TimelineGap extends TimelinePoint {}
 
 class TimelineManager {
-  constructor(url) {
-    this.url = url
+  constructor() {
     this.xmlDoc = null
     this.actors = []
     this.locations = []
@@ -144,41 +143,44 @@ class TimelineManager {
     this.orphans = []
   }
 
-  load(cb) {
+  load(url, cb) {
     var req = new XMLHttpRequest();
     req.onload = () => {
-      var parser = new DOMParser();
-      this.xmlDoc = parser.parseFromString(req.response, "text/xml");
-
-      // load actors
-      var actorTags = this.xmlDoc.getElementsByTagName('TA');
-      for (var actorTag of actorTags) {
-        this.actors.push(new Actor(actorTag, this));
-      }
-
-      // load locations
-      var locationTags = this.xmlDoc.getElementsByTagName('TL');
-      for (var locationTag of locationTags) {
-        this.locations.push(new Location(locationTag, this));
-      }
-
-      // load speeches
-      var speechTags = this.xmlDoc.getElementsByTagName('TS');
-      for (var speechTag of speechTags) {
-        this.speeches.push(new Speech(speechTag, this));
-      }
-
-      // load relations
-      var relationTags = this.xmlDoc.getElementsByTagName('TREL');
-      for (var relationTag of relationTags) {
-        this.relations.push(new Relation(relationTag, this));
-      }
-
+      this.loadString(req.response);
       cb();
     }
 
-    req.open("GET", this.url);
+    req.open("GET", url);
     req.send();
+  }
+
+  loadString(string) {
+    var parser = new DOMParser();
+    this.xmlDoc = parser.parseFromString(string, "text/xml");
+
+    // load actors
+    var actorTags = this.xmlDoc.getElementsByTagName('TA');
+    for (var actorTag of actorTags) {
+      this.actors.push(new Actor(actorTag, this));
+    }
+
+    // load locations
+    var locationTags = this.xmlDoc.getElementsByTagName('TL');
+    for (var locationTag of locationTags) {
+      this.locations.push(new Location(locationTag, this));
+    }
+
+    // load speeches
+    var speechTags = this.xmlDoc.getElementsByTagName('TS');
+    for (var speechTag of speechTags) {
+      this.speeches.push(new Speech(speechTag, this));
+    }
+
+    // load relations
+    var relationTags = this.xmlDoc.getElementsByTagName('TREL');
+    for (var relationTag of relationTags) {
+      this.relations.push(new Relation(relationTag, this));
+    }
   }
 
   getActors() {
