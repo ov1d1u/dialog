@@ -15,6 +15,13 @@
         <div class="intro">
             <h1>TimeBox</h1>
 
+			<div class="wrap-input">
+				<form action="" method="POST">
+					<input type="file" name="xml"  accept="text/xml">
+					<input type="submit" name="" value="submit">
+				</form> 
+				
+			</div>
             <div class="select-intro">
                 <span>Select Actor(s): </span>
 				<select name="actors" multiple="multiple" data-max="5" id="selected">
@@ -33,7 +40,7 @@
   <script type="text/javascript">
 	jQuery(document).ready(function($) {
 
-		timelineManager = new TimelineManager('input/hln_final.xml')
+		timelineManager = new TimelineManager('input/hln_final_2.xml')
 		timelineManager.load(function onComplete() {
 			var allActors = timelineManager.getActors();
 			var options  = '';
