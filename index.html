@@ -45,10 +45,12 @@
 			timelineManager.loadString(window.reader.result);
 			
 			var allActors = timelineManager.getMainActors();
+			var mainActors = timelineManager.getMainActors();
+
 			var options  = '';
 
-			$.each( allActors, function( key, value ) {
-				console.log(key, value);
+			$.each( mainActors, function( key, value ) {
+				//console.log(key, value);
 				options += '<option value="' + key + '">' + value.replaceAll('_', ' ') + '</option>';
 			});
 			$( "#selected" ).append( options );

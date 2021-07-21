@@ -299,7 +299,7 @@ class TimelineManager {
         } else if (relation.type == 'BEFORE') {
           this.points.insert(idx, point)
           this.points.insert(idx+1, new TimelineGap(relation.from))
-        } else if (relation.type == 'AFTER') {
+        } else if (relation.type == 'AFTER') { // new empy node with FROM reference
           this.points.insert(idx+1, new TimelineGap(relation.from))
           this.points.insert(idx+2, point)
         }
