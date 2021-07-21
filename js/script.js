@@ -259,7 +259,7 @@ class TimelineManager {
   }
 
   processTimeline(actorIds) {
-    var orphans = []
+    this.orphans = []
     
     for (var relation of this.relations) {
       if (this.pointFromSpeech(relation.from)) {
@@ -267,15 +267,16 @@ class TimelineManager {
       }
       if (this.points.length == 0) {
         // Create the first point
-        var point = new TimelinePoint(relation.to)
+        const point = new TimelinePoint(relation.to)
         this.points.push(point)
       }
 
-      var point = new TimelinePoint(relation.from)
-      var toPoint = this.pointFromSpeech(relation.to)
+      const point = new TimelinePoint(relation.from)
+      const toPoint = this.pointFromSpeech(relation.to)
+      const hasActor = relation.from.hasAnyOfActors(actorIds)
 
       if (toPoint) {
-        var idx = this.indexOfPoint(toPoint)
+        const idx = this.indexOfPoint(toPoint)
 
         if (relation.type == 'IMMEDIATELY_BEFORE') {
           this.points.insert(idx, point)
@@ -283,25 +284,23 @@ class TimelineManager {
           this.points.insert(idx + 1, point)
         } else if (relation.type == 'BEFORE') {
           this.points.insert(idx, point)
-          this.points.insert(idx+1, null)  // padding
+          if (hasActor) this.points.insert(idx+1, null)  // padding
         } else if (relation.type == 'AFTER') {
-          this.points.insert(idx+1, null)  // padding
-          this.points.insert(idx+2, point)
+          if (hasActor) this.points.insert(idx+1, null)  // padding
+          this.points.insert(idx+(hasActor ? 2 : 1), point)
         }
       } else {
         this.orphans.push(relation.from) 
       }
     }
-
-    return orphans
   }
 
   drawTimeline(actorIds) {
     var retries = 0
     var maxX = 0
-    this.orphans = this.processTimeline(actorIds)
+    this.processTimeline(actorIds)
     while (this.orphans.length && ++retries <= 10) {
-      this.orphans = this.processTimeline(actorIds)
+      this.processTimeline(actorIds)
     }
 
     if (this.orphans.length > 0) {
@@ -333,8 +332,6 @@ class TimelineManager {
       labels: labels,
       datasets: [dataset]
     }
-
-    console.log(dataset)
 
     if (window.timelineChart) {
       window.timelineChart.destroy();
