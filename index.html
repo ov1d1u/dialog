@@ -5,25 +5,38 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="//fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.sumoselect/3.1.6/sumoselect.min.css">
+  <link rel="stylesheet" href="css/style.css">
   <title>TimeBox</title>
 </head>
 <body>
   <main>
     <div class="container">
         <div class="intro">
-            <h1>TimeBox</h1>
-
-			<div class="wrap-input">
-				<input type="file" id="xmlFile" name="xmlFile" />
-				<button id="loadFileButton">Încarcă</button>
+           <div class="logo">
+				<img src="images/logo.png">
+			</div>
+ 
+			<div class="wrap-input file-manager">
+				<div class="dropzone">
+					<div class="step"><span>1</span> Upload document</div>
+					<div class="file-drop-area">
+						<span class="fake-btn">Choose file</span>
+						<span class="file-msg">or drag and drop a XML file here</span>
+						<input type="file" id="xmlFile"  class="file-input" name="xmlFile" />
+					  </div>
+					
+					<button type="submit" id="loadFileButton">Upload</button>
+				</div>
+				
 
 			</div>
-            <div class="select-intro">
-                <span>Select Actor(s): </span>
-				<select name="actors" multiple="multiple" data-max="5" id="selected">
+            <div class="select-intro hide">
+				<div class="step"><span>2</span> Select Actor</div>
+				<select name="actors" id="selected">
 				</select>
+
+				<div class="to-back-button"><a href="#" class="to-back">Back</a></div>
             </div>
         </div>
         <div class="canvas">
@@ -39,6 +52,34 @@
 	jQuery(document).ready(function($) {
 		window.currentFile = null;
 		window.reader = new FileReader();
+ 
+		var $fileInput = $('.file-input');
+		var $droparea = $('.file-drop-area');
+
+		// highlight drag area
+		$fileInput.on('dragenter focus click', function() {
+		$droparea.addClass('is-active');
+		});
+
+		// back to normal state
+		$fileInput.on('dragleave blur drop', function() {
+		$droparea.removeClass('is-active');
+		});
+
+		// change inner text
+		$fileInput.on('change', function() {
+		var filesCount = $(this)[0].files.length;
+		var $textContainer = $(this).prev();
+
+		if (filesCount === 1) {
+			// if single file is selected, show file name
+			var fileName = $(this).val().split('\\').pop();
+			$textContainer.text(fileName);
+		} else {
+			// otherwise show number of files
+			$textContainer.text(filesCount + ' files selected');
+		}
+		});
 
 		window.reader.onload = function(e) {
 			timelineManager = new TimelineManager();
@@ -58,8 +99,8 @@
 			var select = $('#selected').SumoSelect({
 				placeholder: 'See options',
 				search: true,
-				searchText: 'Search...',
-				okCancelInMulti: true
+				//searchText: 'Search...',
+				//okCancelInMulti: true
 			});
 
 			$('#selected').on('sumo:closing', function(sumo) {
@@ -79,8 +120,15 @@
 		$('#loadFileButton').click(function() {
 			if (window.currentFile) {
 				window.reader.readAsText(window.currentFile);
+				jQuery('.file-manager').addClass('hide');
+				jQuery('.select-intro').removeClass('hide');
 			}
-		})
+		});
+		$('.to-back').click(function(e) {
+			e.preventDefault();
+			jQuery('.file-manager').removeClass('hide');
+			jQuery('.select-intro').addClass('hide');
+		}); 
 	});
   </script>
 </body>

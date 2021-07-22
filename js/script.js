@@ -1,6 +1,6 @@
 const getColor = (index) => {
   const colors = [
-    "#f94144",
+    "#ffffff",
     "#f3722c",
     "#f8961e",
     "#f9c74f",
@@ -364,7 +364,7 @@ class TimelineManager {
         aspectRatio: 4,
         scales: {
           xAxis: {
-            display: true,
+            display: false,
             max: maxX + 2
           },
           yAxis: {
