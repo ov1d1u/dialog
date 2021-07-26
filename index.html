@@ -47,7 +47,7 @@
   <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
   <script src="js/chart.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.sumoselect/3.1.6/jquery.sumoselect.min.js"></script>
-  <script src="js/script.js"></script>
+  <script src="js/script.js?ver=3243"></script>
   <script type="text/javascript">
 	jQuery(document).ready(function($) {
 		window.currentFile = null;
@@ -108,7 +108,7 @@
 				var selectedActors = $(this).val();
 				console.log(selectedActors);
 				//timelineManager.drawTimeline(["A1", "A2", "A3"]);
-				timelineManager.drawTimeline(selectedActors);
+				timelineManager.drawTimeline([selectedActors]);
 				//timelineManager.drawTimeline(["A1"]);
 			});
 		}

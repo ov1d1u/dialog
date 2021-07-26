@@ -334,3 +334,65 @@ body {
 #mainCont span.left {
   left: -100%;
 }
+
+.SumoSelect>.CaptionCont {
+  padding: 15px 26px;
+    border: 1px dashed rgba(255, 255, 255, 0.4);
+    background: transparent;
+    color: #fff;
+}
+
+.SumoSelect>.CaptionCont>label>i {
+  width: 0; 
+  height: 0; 
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #fff;
+}
+
+.SumoSelect.open .search-txt {
+  font-size: 1.1rem;
+  padding: 15px 26px;
+  /* border: 1px dashed rgba(255, 255, 255, 0.4); */
+  background: transparent;
+  color: #fff!important;
+  height: 51px;
+
+}
+
+.SumoSelect.open .search-txt::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #fff!important;
+}
+.SumoSelect.open .search-txt::-moz-placeholder { /* Firefox 19+ */
+  color: #fff!important;
+}
+.SumoSelect.open .search-txt :-ms-input-placeholder { /* IE 10+ */
+  color: #fff!important;
+}
+.SumoSelect.open .search-txt :-moz-placeholder { /* Firefox 18- */
+  color: #fff!important;
+}
+
+.SumoSelect.open>.optWrapper {
+  top: 55px;
+
+}
+
+.SumoSelect>.optWrapper>.options li.opt {
+  padding: 10px 23px;
+  position: relative;
+  border-bottom: 1px solid #f5f5f530;
+}
+
+.SumoSelect>.optWrapper>.options li label {
+  color: #fff
+}
+
+.SumoSelect>.optWrapper {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: transparent;
+}
+
+.SumoSelect>.optWrapper>.options li.opt:hover {
+  background-color: #9269be;
+}
