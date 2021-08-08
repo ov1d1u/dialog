@@ -309,7 +309,7 @@ class TimelineManager {
     }
   }
 
-  drawTimeline(actorIds) {
+  drawTimeline(actorIds, stepsLimit = -1) {
     var retries = 0
     var maxX = 0
     this.processTimeline(actorIds)
@@ -341,6 +341,10 @@ class TimelineManager {
           maxX = Math.max(maxX, currentPos)
         }
         currentPos++
+
+        if (stepsLimit > -1 && currentPos === stepsLimit) {
+          break
+        }
       }
     }
 
