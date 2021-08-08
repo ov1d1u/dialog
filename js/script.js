@@ -132,7 +132,12 @@ class TimelinePoint {
 class TimelineGap extends TimelinePoint {}
 
 class TimelineManager {
-  constructor() {
+  constructor(options = {}) {
+    var defaults = {
+      showLabels: false
+    }
+    this.options = Object.assign({}, defaults, options);
+    
     this.xmlDoc = null
     this.actors = []
     this.locations = []
@@ -329,7 +334,12 @@ class TimelineManager {
       borderWidth: 6,
       data: [],
       points: [],
-      spanGaps: true
+      spanGaps: true,
+      datalabels: {
+        color: '#FFFFFF',
+        align: 'top',
+        offset: 12
+      }
     }
 
     var currentPos = 0
@@ -360,6 +370,7 @@ class TimelineManager {
 
     var ctx = document.getElementById('timeline');
     window.timelineChart = new Chart(ctx, {
+      plugins: [ChartDataLabels],
       type: 'line',
       data: data,
       options: {
@@ -400,6 +411,12 @@ class TimelineManager {
               //   const point = item[0].dataset.points[item[0].dataIndex];
               //   return `Trigger: ${point}`
               // }
+            }
+          },
+          datalabels: {
+            formatter: (value, context) => {
+              const point = context.dataset.points[context.dataIndex];
+              return this.options.showLabels ? point.speech.id : null
             }
           }
         }
