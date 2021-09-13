@@ -86,12 +86,12 @@
 			timelineManager = new TimelineManager({showLabels: true});
 			timelineManager.loadString(window.reader.result);
 			
-			var allActors = timelineManager.getMainActors();
+			var allActors = timelineManager.getActors();
 			var mainActors = timelineManager.getMainActors();
 
 			var options  = '';
 
-			$.each( mainActors, function( key, value ) {
+			$.each( allActors, function( key, value ) {
 				//console.log(key, value);
 				options += '<option value="' + key + '">' + value.replaceAll('_', ' ') + '</option>';
 			});
