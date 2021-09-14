@@ -1,7 +1,7 @@
 <TAGS>
-	<TA ID="A1" NAME="Adam" />
+	<TA ID="A1" NAME="Adam" TYPE="MAIN" />
 	<TA ID="A2" NAME="soldații" />
-	<TA ID="A3" NAME="Karl" />
+	<TA ID="A3" NAME="Karl" TYPE="MAIN" />
 	<TA ID="A4" NAME="bătrânul" />
 	<TA ID="A5" NAME="negustorul_chinez" />
 	<TA ID="A6" NAME="chinezul_de_la_amanet" />
@@ -9,10 +9,10 @@
 	<TA ID="A8" NAME="bande_de_tineri" />
 	<TA ID="A9" NAME="o_pereche_de_olandezi" />
 	<TA ID="A10" NAME="olandeza" />
-	<TA ID="A11" NAME="Johan" />
-	<TA ID="A12" NAME="Margaret" />
-	<TA ID="A13" NAME="Din" />
-	<TA ID="A14" NAME="Bill_Schneider" />
+	<TA ID="A11" NAME="Johan" TYPE="MAIN" />
+	<TA ID="A12" NAME="Margaret" TYPE="MAIN" />
+	<TA ID="A13" NAME="Din" TYPE="MAIN" />
+	<TA ID="A14" NAME="Bill_Schneider" TYPE="MAIN" />
 	<TA ID="A15" NAME="Susanti" />
 	<TA ID="A16" NAME="autoritatea_olandeză_din_Batavia" />
 	<TA ID="A17" NAME="sultanul" />
@@ -28,14 +28,14 @@
 	<TA ID="A27" NAME="Yon" />
 	<TA ID="A28" NAME="unul_mai_mic" />
 	<TA ID="A29" NAME="un_american_care_le_a_dat_dolari_și_un_maiou_pe_scria_Berkeley" />
-	<TA ID="A30" NAME="Farah" />
+	<TA ID="A30" NAME="Farah" TYPE="MAIN" />
 	<TA ID="A31" NAME="Bob" />
 	<TA ID="A32" NAME="travestiţi" />
 	<TA ID="A33" NAME="o_duzină_de_asemenea_fete_pe_stradă" />
 	<TA ID="A34" NAME="Regina" />
 	<TA ID="A35" NAME="taică_său" />
 	<TA ID="A36" NAME="niște_soldați_în_faţa_porticului_vechii_primării" />
-	<TA ID="A37" NAME="Mick" />
+	<TA ID="A37" NAME="Mick" TYPE="MAIN" />
 	<TA ID="A38" NAME="Rudy" />
 	<TA ID="A39" NAME="Gide" />
 	<TA ID="A40" NAME="Rilke" />
@@ -111,7 +111,7 @@
 	<TA ID="A110" NAME="tipul_ăsta_care_trage_ricșa" />
 	<TA ID="A111" NAME="o_femeie_tânără " />
 	<TA ID="A112" NAME="o_fetiţă_de_cel_mult_trei_sau_patru_ani" />
-	<TA ID="A113" NAME="Zubaidah" />
+	<TA ID="A113" NAME="Zubaidah" TYPE="MAIN" />
 	<TA ID="A114" NAME="Awie" />
 	<TA ID="A115" NAME="douăsprezece_persoane" />
 	<TA ID="A116" NAME="o_mulţime_de_oameni_strânşi_la_un_loc" />
@@ -433,7 +433,7 @@
 	<TS ID="TS2" SPANS="167~1379" ACTORS="Adam,soldații,Karl" LOCATION="în casă" NAME="Soldații îl iau pe Karl, în timp ce Adam este ascuns în tufișuri" TYPE="Narration" PER="Narator,Adam" TEXT="Soldaţii săriseră din camion pe pământul nisipos. S-au scuturat de praf, şi-au îndreptat pantalonii suﬂecaţi, şi-au potrivit cămăşile. Mânecile rulate până deasupra coatelor le scoteau la iveală braţele slabe, ﬁrave, şi erau strânşi în centuri atât de late, încât li se întindeau până peste piept. Râdeau, glumeau şi se prefăceau că dau cu piciorul unii într-alţii. Erau încălţaţi cu bocanci prea mari pentru ei, iar când alergau arătau ca nişte sunt clovni. Nu-s decât nişte băieţi ca mine, se gândea Adam, atâta doar că ei au arme! Când s-au apropiat de treptele verandei au şovăit şi au schimbat câteva cuvinte. Erau prea departe, el n-a putut să audă ce-şi spuneau. 
 	Apoi doi dintre ei au intrat în casă, iar când au ieşit, erau cu Karl. Nu-i puseseră cătuşe. Până să urce în camion şi să dispară după prelata lăsată, i-a urmat fără grabă, cu mersul lui greoi. De la distanţă părea şi el mic, asemenea lor, asemenea celorlalţi copii, doar că el avea părul deschis la culoare şi pielea roz. 
 	Stai! Adam a vrut să-l cheme, să ţipe la Karl să se întoarcă. Nu pleca, i-a venit să strige. Dar a rămas tăcut şi nemişcat, ascuns în frunzişul des şi plin de ghimpi. Acum era în stare să se stăpânească şi să tacă, îşi ţinea respiraţia şi număra rar până la zece." />
-	<TS ID="TS3" SPANS="1380~1541" ACTORS="Adam" LOCATION="unknown" NAME="Adam a învăţat cu multă vreme în urmă să îşi controleze frica" TYPE="Narration" PER="Narator" TEXT="Cu multă vreme în urmă învăţase să-şi controleze astfel frica." />
+	<TS ID="TS3" SPANS="1380~1541" ACTORS="Adam" LOCATION="unknown" NAME="Adam a învăţat cu multă vreme în urmă să îşi controleze frica" TYPE="Narration" PER="Narator" TEXT=" Cu multă vreme în urmă învăţase să-şi controleze astfel frica." />
 	<TS ID="TS4" SPANS="1541~1937" ACTORS="Adam" LOCATION="unknown" NAME="Camionul pleacă" TYPE="Narration" PER="Narator" TEXT="Camionul a dat înapoi, apoi a ţâşnit înainte, stârnind nisipul şi ridicând un nor de praf. Pe unul dintre obloane fusese schiţat cu creta un penis şi alături scria ÎN MĂ-TA. Cerul era acoperit, jos şi neguros, îngreunat de apă. Aşa era de câteva zile; nu mai plouase de multă vreme, dar acum se apropia furtuna. Toată lumea dorea să plouă.  " />
 	<TS ID="TS5" SPANS="1937~2151" ACTORS="Adam" LOCATION="unknown" NAME="Semne prevestitoare ale unei nenoriciri" TYPE="Narration" PER="Narator" TEXT="Adevărul e că Adam nu se mirase de venirea soldaţilor. Toată luna fuseseră semne prevestitoare ale unei nenorociri de neocolit, însă parcă numai el le văzuse. Marea se agitase săptămâni de-a rândul, iar pământul fremăta atât cât să stârnească suspiciunea unui cutremur." />
 	<TS ID="TS6" SPANS="2151~2474" ACTORS="Adam" LOCATION="unknown" NAME="Adam este trezit de un posibil cutremur" TYPE="Narration" PER="Narator" TEXT=" Într-o noapte, Adam fusese trezit de o asemenea clătinare, iar când se dusese la uşă şi privise afară, cocotierii unduiau în toate părţile, cu toate că nu se simţea nici o adiere de vânt. Simţea că nu mai e sigur pe picioare, iar pentru o clipă n-a mai ştiut dacă nu cumva era chiar el cel care se leagănă, şi nu copacii.Pisica roşcată cu pete albe, care îşi petrecea ziua-ntreagă alergând pe acoperişul de iarbă după şoricei şi şopârle, a început să se târască încetişor, nesigură, de parcă îmbătrânise dintr-odată, până când, într-o dimineaţă, Adam a găsit-o moartă pe nisip, cu gâtul strâmb, răsucit spre cer." />
@@ -2933,9 +2933,9 @@
 	— O să mă mărit cu un om bun şi o să-i fac copii buni." />
 	<TS ID="TS375" SPANS="668034~669096" ACTORS="Johan" LOCATION="în mașină" NAME="Johan străbate orașul cu mașina" TYPE="Narration" PER="Narator" TEXT="Străbătea în viteză oraşul tăcut, noaptea era mânjită de culorile neoanelor. La intersecţiile întunecate nu se uita la luminile semafoarelor. Nu ţinea niciodată seama de celelalte maşini, nu ţinea seama de nimic. În oraşul acesta tânăr şi grăbit, n-avea chef să stea locului şi nici să se culce. Ploua. Străzile erau alunecoase, acoperite de mâzgă, marile imobile se goliseră şi erau cufundate în tăcere, iar la periferie, în noile cartiere, maidanele care separau droaia de locuinţe se pierdeau în beznă, astfel încât în locul mormanelor de gunoaie şi al bicicletelor stricate el îşi închipuia arbori şi eleşteie. Uneori putea să-şi imagineze acolo şi marea. Abia atunci se simţea el cel mai fericit, pentru că noaptea părea mai lungă, mai adâncă şi mai tăcută. Ar fi vrut ca locul acela să nu aibă trecut. Ar fi vrut ca noaptea din ajun să nu fi fost decât un vis, iar luna dinainte nici să nu fi existat. El trebuia să se mişte. Câtă vreme nu se oprea, nu i se putea întâmpla nimic. Ploua. Uneori putea să-şi imagineze marea. Străbătea în viteză oraşul tăcut." />
 	<TREL ID="TI1" FROM="TS2" TO="TS1" REL="IMMEDIATELY_BEFORE" TRIGGER="iată ce a văzut" />
-	<TREL ID="TI2" FROM="TS3" TO="TS2" REL="BEFORE" TRIGGER="Acum" />
+	<TREL ID="TI2" FROM="TS3" TO="TS2" REL="BEFORE" TRIGGER="Cu multă vreme în urmă" />
 	<TREL ID="TI3" FROM="TS4" TO="TS2" REL="IMMEDIATELY_AFTER" TRIGGER="camionul a dat înapoi" />
-	<TREL ID="TI4" FROM="TS5" TO="TS4" REL="BEFORE" TRIGGER="toată luna fuseseră" />
+	<TREL ID="TI4" FROM="TS5" TO="TS2" REL="BEFORE" TRIGGER="toată luna fuseseră" />
 	<TREL ID="TI5" FROM="TS6" TO="TS5" REL="SIMULTANEOUS" TRIGGER="într_o noapte" />
 	<TREL ID="TI6" FROM="TS7" TO="TS6" REL="AFTER" TRIGGER="până când, într_o dimineață" />
 	<TREL ID="TI7" FROM="TS8" TO="TS7" REL="AFTER" TRIGGER="apoi a fost întâmplarea" />
@@ -2967,6 +2967,7 @@
 	<TREL ID="TI33" FROM="TS34" TO="TS33" REL="AFTER" TRIGGER="aceste întâmplări din noua lui viaţă le reface în minte de câte ori doreşte" />
 	<TREL ID="TI34" FROM="TS35" TO="TS21" REL="SIMULTANEOUS" TRIGGER="Chiar şi în clipa aceasta" />
 	<TREL ID="TI35" FROM="TS36" TO="TS31" REL="SIMULTANEOUS" TRIGGER="alteori" />
+	<TREL ID="TI3666" FROM="TS37" TO="TS282" REL="AFTER" TRIGGER="de fapt, Margaret nu era deprimată" />
 	<TREL ID="TI36" FROM="TS38" TO="TS37" REL="SIMULTANEOUS" TRIGGER="de fapt, Margaret nu era deprimată" />
 	<TREL ID="TI37" FROM="TS39" TO="TS38" REL="IMMEDIATELY_AFTER" TRIGGER="Aşa spui de fiecare dată" />
 	<TREL ID="TI38" FROM="TS40" TO="TS39" REL="IMMEDIATELY_AFTER" TRIGGER="Margaret s_a întors cu spatele şi a privit pe fereastră întinderea de clădiri cenuşii" />
@@ -3004,7 +3005,8 @@
 	<TREL ID="TI70" FROM="TS74" TO="TS73" REL="AFTER" TRIGGER="Adam a continuat să meargă la şcoală, dar zilele nu mai erau aceleaşi fără Neng" />
 	<TREL ID="TI71" FROM="TS75" TO="TS74" REL="SIMULTANEOUS" TRIGGER="Nopţile lui, care o vreme fuseseră liniştite, cu somn adânc, au redevenit tulburi" />
 	<TREL ID="TI72" FROM="TS76" TO="TS75" REL="AFTER" TRIGGER="Într_o dimineaţă" />
-	<TREL ID="TI73" FROM="TS77" TO="TS76" REL="IMMEDIATELY_AFTER" TRIGGER="În seara aceea" />
+	<TREL ID="TI73" FROM="TS77" TO="TS76" REL="AFTER" TRIGGER="Într_o dimineaţă" />
+	<TREL ID="TI74444" FROM="TS78" TO="TS208" REL="AFTER" TRIGGER="Când s_au oprit" />
 	<TREL ID="TI74" FROM="TS79" TO="TS78" REL="IMMEDIATELY_AFTER" TRIGGER="Când s_au oprit" />
 	<TREL ID="TI75" FROM="TS80" TO="TS79" REL="IMMEDIATELY_AFTER" TRIGGER="Hai s_o ştergem de_aici" />
 	<TREL ID="TI76" FROM="TS81" TO="TS56" REL="IMMEDIATELY_AFTER" TRIGGER="Soneria s-a oprit chiar în clipa când Margaret a deschis ochii" />
@@ -3045,7 +3047,7 @@
 	<TREL ID="TI111" FROM="TS115" TO="TS114" REL="IMMEDIATELY_AFTER" TRIGGER="Se făcuse tare târziu când Karl a izbutit să_l găsească lângă zid" />
 	<TREL ID="TI112" FROM="TS116" TO="TS104" REL="IMMEDIATELY_AFTER" TRIGGER="Acum spune_mi încă o dată… Adam! Cum de_ai ajuns aici?" />
 	<TREL ID="TI113" FROM="TS117" TO="TS116" REL="IMMEDIATELY_AFTER" TRIGGER="El a început să-i relateze" />
-	<TREL ID="TI114" FROM="TS118" TO="TS1" REL="BEFORE" TRIGGER="Margaret se îndrăgostise de Karl" />
+	<TREL ID="TI114" FROM="TS118" TO="TS12" REL="BEFORE" TRIGGER="Margaret se îndrăgostise de Karl" />
 	<TREL ID="TI115" FROM="TS119" TO="TS118" REL="SIMULTANEOUS" TRIGGER="se cunoscuseră" />
 	<TREL ID="TI116" FROM="TS120" TO="TS119" REL="IMMEDIATELY_AFTER" TRIGGER="Paznicii templului s_au apucat în cele din urmă să_i stropească" />
 	<TREL ID="TI117" FROM="TS121" TO="TS117" REL="IMMEDIATELY_AFTER" TRIGGER="Te rog, spune da, Mick!" />
@@ -3090,9 +3092,9 @@
 	<TREL ID="TI156" FROM="TS160" TO="TS159" REL="IMMEDIATELY_AFTER" TRIGGER="Mick îşi făcuse apariţia pe uşa bucătăriei cu o tavă cu mâncare" />
 	<TREL ID="TI157" FROM="TS161" TO="TS160" REL="IMMEDIATELY_AFTER" TRIGGER="După ce terminase de mâncat" />
 	<TREL ID="TI158" FROM="TS162" TO="TS161" REL="IMMEDIATELY_AFTER" TRIGGER="De-a lungul acelei nopţi" />
-	<TREL ID="TI159" FROM="TS163" TO="TS134" REL="AFTER" TRIGGER="Ai rămas în fundul patului cât e ziua de lungă, uite, s-a şi făcut noapte" />
+	<TREL ID="TI159" FROM="TS163" TO="TS134" REL="IMMEDIATELY_AFTER" TRIGGER="Ai rămas în fundul patului cât e ziua de lungă, uite, s-a şi făcut noapte" />
 	<TREL ID="TI160" FROM="TS164" TO="TS163" REL="IMMEDIATELY_AFTER" TRIGGER="Difuzorul liftului în care urcau spre restaurant" />
-	<TREL ID="TI161" FROM="TS165" TO="TS78" REL="BEFORE" TRIGGER="Cu puţin timp în urmă" />
+	<TREL ID="TI161" FROM="TS165" TO="TS78" REL="IMMEDIATELY_BEFORE" TRIGGER="Cu puţin timp în urmă" />
 	<TREL ID="TI162" FROM="TS166" TO="TS164" REL="IMMEDIATELY_AFTER" TRIGGER="dar ai putea să te uiţi din când în când şi la mămica ta" />
 	<TREL ID="TI163" FROM="TS167" TO="TS166" REL="IMMEDIATELY_AFTER" TRIGGER="Au fost serviţi" />
 	<TREL ID="TI164" FROM="TS168" TO="TS167" REL="IMMEDIATELY_AFTER" TRIGGER="Rămas singur" />
@@ -3134,8 +3136,8 @@
 	<TREL ID="TI200" FROM="TS204" TO="TS203" REL="IMMEDIATELY_AFTER" TRIGGER="Au pornit înapoi încet prin îmbulzeală" />
 	<TREL ID="TI201" FROM="TS205" TO="TS120" REL="AFTER" TRIGGER="Erau conduşi de_a lungul casei unui artist renumit" />
 	<TREL ID="TI202" FROM="TS206" TO="TS205" REL="IMMEDIATELY_AFTER" TRIGGER="De îndată ce au plecat" />
-	<TREL ID="TI203" FROM="TS207" TO="TS168" REL="AFTER" TRIGGER="Johan, aşteaptă! Nu-mi da drumul!" />
-	<TREL ID="TI204" FROM="TS208" TO="TS22" REL="BEFORE" TRIGGER="Fusese sărbătorit doar o dată" />
+	<TREL ID="TI203" FROM="TS207" TO="TS168" REL="IMMEDIATELY_AFTER" TRIGGER="Johan, aşteaptă! Nu-mi da drumul!" />
+	<TREL ID="TI204" FROM="TS208" TO="TS1" REL="BEFORE" TRIGGER="Fusese sărbătorit doar o dată" />
 	<TREL ID="TI205" FROM="TS209" TO="TS207" REL="IMMEDIATELY_AFTER" TRIGGER="Farah i_a strâns puternic mâna" />
 	<TREL ID="TI206" FROM="TS210" TO="TS209" REL="IMMEDIATELY_AFTER" TRIGGER="A găsit_o pe Farah lângă maşină" />
 	<TREL ID="TI207" FROM="TS211" TO="TS189" REL="IMMEDIATELY_AFTER" TRIGGER="Adam s-a trezit atât de obosit" />
@@ -3177,10 +3179,10 @@
 	<TREL ID="TI243" FROM="TS247" TO="TS246" REL="SIMULTANEOUS" TRIGGER="Tocmai mă întorsesem din Olanda" />
 	<TREL ID="TI244" FROM="TS248" TO="TS246" REL="IMMEDIATELY_AFTER" TRIGGER="Au coborât şi au continuat pe jos" />
 	<TREL ID="TI245" FROM="TS249" TO="TS248" REL="IMMEDIATELY_AFTER" TRIGGER="Adam a urcat rampa în curbă care ducea spre intrare." />
-	<TREL ID="TI246" FROM="TS250" TO="TS210" REL="AFTER" TRIGGER="Acum nici măcar nu poate să_mi treacă prin cap pe unde te_nvârţi dumneata toată noaptea" />
+	<TREL ID="TI246" FROM="TS250" TO="TS210" REL="IMMEDIATELY_AFTER" TRIGGER="Acum nici măcar nu poate să_mi treacă prin cap pe unde te_nvârţi dumneata toată noaptea" />
 	<TREL ID="TI247" FROM="TS252" TO="TS250" REL="IMMEDIATELY_AFTER" TRIGGER="Johan, ziceam că abia dacă te zăresc în ultima vreme" />
 	<TREL ID="TI248" FROM="TS254" TO="TS252" REL="IMMEDIATELY_AFTER" TRIGGER="Mai lasă odată dracului ziarul ăla şi vorbeşte_mi, Johan" />
-	<TREL ID="TI249" FROM="TS255" TO="TS208" REL="SIMULTANEOUS" TRIGGER="La orfelinat nu_i fusese niciodată teamă de beznă" />
+	<TREL ID="TI249" FROM="TS255" TO="TS78" REL="AFTER" TRIGGER="La orfelinat nu_i fusese niciodată teamă de beznă" />
 	<TREL ID="TI250" FROM="TS256" TO="TS255" REL="IMMEDIATELY_AFTER" TRIGGER="Odată, când Adam era încă foarte mic" />
 	<TREL ID="TI251" FROM="TS257" TO="TS256" REL="AFTER" TRIGGER="Într_o noapte, târziu" />
 	<TREL ID="TI252" FROM="TS258" TO="TS254" REL="IMMEDIATELY_AFTER" TRIGGER="O să intri la C.M.R." />
@@ -3194,7 +3196,7 @@
 	<TREL ID="TI260" FROM="TS267" TO="TS265" REL="IMMEDIATELY_AFTER" TRIGGER="Mick s_a apucat să caute prin sertare" />
 	<TREL ID="TI261" FROM="TS268" TO="TS267" REL="BEFORE" TRIGGER="a găsit acum puţină vreme" />
 	<TREL ID="TI262" FROM="TS269" TO="TS267" REL="IMMEDIATELY_AFTER" TRIGGER="S_au îndreptat spre poarta principală" />
-	<TREL ID="TI263" FROM="TS270" TO="TS206" REL="_AFTER" TRIGGER="Karl plasase pe acest fundal" />
+	<TREL ID="TI263" FROM="TS270" TO="TS206" REL="AFTER" TRIGGER="Karl plasase pe acest fundal" />
 	<TREL ID="TI264" FROM="TS271" TO="TS37" REL="BEFORE" TRIGGER="Avea doisprezece ani pe atunci" />
 	<TREL ID="TI265" FROM="TS272" TO="TS270" REL="IMMEDIATELY_AFTER" TRIGGER="E o minune s_o pictezi" />
 	<TREL ID="TI266" FROM="TS273" TO="TS272" REL="IMMEDIATELY_AFTER" TRIGGER="Margaret a ajuns acasă pe ploaie" />
@@ -3226,7 +3228,7 @@
 	<TREL ID="TI292" FROM="TS299" TO="TS297" REL="IMMEDIATELY_AFTER" TRIGGER="Necazul, a zis ea după o vreme, necazul e că tu nici nu ştii ce vrei" />
 	<TREL ID="TI293" FROM="TS300" TO="TS299" REL="SIMULTANEOUS" TRIGGER="Se imagina aşezat în diagonală" />
 	<TREL ID="TI294" FROM="TS301" TO="TS299" REL="IMMEDIATELY_AFTER" TRIGGER="Iar în ceea ce priveşte istoria cu fratele tău" />
-	<TREL ID="TI295" FROM="TS302" TO="TS258" REL="AFTER" TRIGGER="Tata zice că te duci la colegiul militar" />
+	<TREL ID="TI295" FROM="TS302" TO="TS258" REL="IMMEDIATELY_AFTER" TRIGGER="Tata zice că te duci la colegiul militar" />
 	<TREL ID="TI296" FROM="TS303" TO="TS302" REL="IMMEDIATELY_AFTER" TRIGGER="Amurg. Uneori, norii de ploaie îngrămădiţi" />
 	<TREL ID="TI297" FROM="TS304" TO="TS303" REL="SIMULTANEOUS" TRIGGER="Dacă închidea ochii, putea chiar să_şi închipuie " />
 	<TREL ID="TI298" FROM="TS305" TO="TS303" REL="IMMEDIATELY_AFTER" TRIGGER="Multă vreme mi_am spus c_am visat" />
